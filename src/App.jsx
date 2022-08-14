@@ -1,18 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Card from './components/Card'
+import data from "./data"
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const newArray = data.map(data => {
+    return <Card 
+    // ADD UNIQUE VALUE WHEN YOU USNG LOCAL RAW DATA
+    key = {data.id}
+    {...data}    
+    />
+  })
 
   return (
     <div className="App">
       <Navbar/>
-      {/* <Hero /> */}
-      <Card/>
+      <Hero />
+      <section className="cards-list">
+        {newArray}
+      </section>
     </div>
   )
 }
